@@ -1,4 +1,4 @@
-package com.Java.Apirest.entitys;
+package com.Java.Apirest.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,11 +15,11 @@ import javax.persistence.*;
 @Data @NoArgsConstructor @AllArgsConstructor
 @Getter @Setter
 @Entity
-@Table(name = "genres")
-public class Genre {
+@Table(name = "generes")
+public class Genere {
 	
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_genre;
+    private Long id_genere;
     
     @Column(unique=true)
     private String name;

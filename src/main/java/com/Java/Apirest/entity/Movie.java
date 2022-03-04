@@ -1,4 +1,4 @@
-package com.Java.Apirest.entitys;
+package com.Java.Apirest.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,7 +24,7 @@ import java.util.List;
 public class Movie {
 	
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_movie;
+    private Long id_movie;
     
     @Column(nullable = false)
     private String image;

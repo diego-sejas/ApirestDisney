@@ -1,4 +1,4 @@
-package com.Java.Apirest.entitys;
+package com.Java.Apirest.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -19,7 +19,7 @@ import javax.persistence.*;
 public class Character{
 	
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_character;
+    private Long id_character;
     
     @Column(nullable = false)
     private String name;
