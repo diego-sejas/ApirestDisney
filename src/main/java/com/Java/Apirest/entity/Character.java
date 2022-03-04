@@ -31,7 +31,7 @@ public class Character{
     private Integer weight;
     
     @Column(nullable = false)
-    private String story;
+    private String history;
     
     @Column(nullable = false)
     private String image;

@@ -34,12 +34,12 @@ public class Movie {
     
     @Column(nullable = false, updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
-    private Date crreationDate = new Date();
+    private Date createDate = new Date();
     
     @NotNull
     @Min(1)
     @Max(5)
-    private Integer qualification;
+    private Integer score;
     
     @JsonIgnore
     @ManyToMany(mappedBy = "movies")
