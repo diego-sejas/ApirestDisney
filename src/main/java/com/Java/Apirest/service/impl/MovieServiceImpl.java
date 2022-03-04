@@ -1,4 +1,11 @@
+
 package com.Java.Apirest.service.impl;
+
+import java.util.List;
+import java.util.NoSuchElementException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.Java.Apirest.dto.MovieDetailsDto;
 import com.Java.Apirest.dto.MovieGetDto;
@@ -6,12 +13,11 @@ import com.Java.Apirest.dto.service.MovieDtoService;
 import com.Java.Apirest.entity.Movie;
 import com.Java.Apirest.repository.MovieRepository;
 import com.Java.Apirest.service.MovieService;
-import java.util.List;
-import java.util.NoSuchElementException;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
+/**
+ *
+ * @author Mariela
+ */
 @Service
 public class MovieServiceImpl implements MovieService {
 

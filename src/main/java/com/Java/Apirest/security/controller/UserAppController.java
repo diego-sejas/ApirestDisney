@@ -1,13 +1,6 @@
 
 package com.Java.Apirest.security.controller;
 
-import com.Java.Apirest.exception.InvalidDataException;
-import com.Java.Apirest.security.dto.UserLogin;
-import com.Java.Apirest.security.entity.UserApp;
-import com.Java.Apirest.security.jwt.JwtDto;
-import com.Java.Apirest.security.jwt.JwtProvider;
-import com.Java.Apirest.security.service.UserServiceImpl;
-import com.Java.Apirest.service.impl.EmailService;
 import javax.mail.MessagingException;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +18,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.Java.Apirest.exception.InvalidDataException;
+import com.Java.Apirest.security.dto.UserLogin;
+import com.Java.Apirest.security.entity.UserApp;
+import com.Java.Apirest.security.jwt.JwtDto;
+import com.Java.Apirest.security.jwt.JwtProvider;
+import com.Java.Apirest.security.service.UserServiceImpl;
+import com.Java.Apirest.service.impl.EmailService;
+
+/**
+ *
+ * @author Mariela
+ */
 
 @RestController
 @RequestMapping("/auth")

@@ -1,9 +1,10 @@
 package com.Java.Apirest.service;
 
 
+import java.util.List;
+
 import com.Java.Apirest.dto.CharacterDetailsDto;
 import com.Java.Apirest.dto.CharacterGetDto;
-import java.util.List;
 import com.Java.Apirest.entity.Character;
 
 public interface CharacterService {

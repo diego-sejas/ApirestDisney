@@ -1,6 +1,10 @@
+
 package com.Java.Apirest.exception;
 
-
+/**
+ *
+ * @author Mariela
+ */
 import org.springframework.validation.BindingResult;
 
 public class InvalidDataException extends RuntimeException {

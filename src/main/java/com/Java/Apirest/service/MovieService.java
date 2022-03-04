@@ -1,9 +1,10 @@
 package com.Java.Apirest.service;
 
+import java.util.List;
+
 import com.Java.Apirest.dto.MovieDetailsDto;
 import com.Java.Apirest.dto.MovieGetDto;
 import com.Java.Apirest.entity.Movie;
-import java.util.List;
 
 public interface MovieService {
     

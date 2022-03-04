@@ -8,6 +8,10 @@ package com.Java.Apirest.security.dto;
 import javax.validation.constraints.NotBlank;
 import lombok.Data;
 
+/**
+ *
+ * @author Mariela
+ */
 @Data
 public class UserLogin {
     

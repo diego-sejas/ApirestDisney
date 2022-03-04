@@ -6,8 +6,6 @@
 package com.Java.Apirest.security.service;
 
 
-import com.Java.Apirest.security.repository.UserAppRepository;
-import com.Java.Apirest.security.entity.UserApp;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,7 +14,13 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.Java.Apirest.security.entity.UserApp;
+import com.Java.Apirest.security.repository.UserAppRepository;
 
+/**
+ *
+ * @author Mariela
+ */
 @Service
 @Transactional
 public class UserServiceImpl implements UserDetailsService {

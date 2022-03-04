@@ -1,14 +1,16 @@
 
 package com.Java.Apirest.dto.service;
 
-import com.Java.Apirest.dto.CharacterDetailsDto;
-import com.Java.Apirest.dto.CharacterGetDto;
-import com.Java.Apirest.repository.CharacterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.Java.Apirest.entity.Character;
+
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
+
+import com.Java.Apirest.dto.CharacterDetailsDto;
+import com.Java.Apirest.dto.CharacterGetDto;
+import com.Java.Apirest.entity.Character;
+import com.Java.Apirest.repository.CharacterRepository;
 
 @Service
 public class CharacterDtoService {

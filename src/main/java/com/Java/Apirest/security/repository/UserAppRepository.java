@@ -6,10 +6,15 @@
 package com.Java.Apirest.security.repository;
 
 
-import com.Java.Apirest.security.entity.UserApp;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.Java.Apirest.security.entity.UserApp;
+
+/**
+ *
+ * @author Mariela
+ */
 @Repository
 public interface UserAppRepository extends JpaRepository<UserApp, Long> {
     UserApp findByUsername(String Username);

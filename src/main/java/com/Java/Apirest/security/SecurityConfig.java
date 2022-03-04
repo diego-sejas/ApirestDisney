@@ -1,10 +1,6 @@
 
 package com.Java.Apirest.security;
 
-import com.Java.Apirest.security.jwt.JwtEntryPoint;
-import com.Java.Apirest.security.jwt.JwtTokenFilter;
-import com.Java.Apirest.security.service.UserServiceImpl;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,6 +14,10 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import com.Java.Apirest.security.jwt.JwtEntryPoint;
+import com.Java.Apirest.security.jwt.JwtTokenFilter;
+import com.Java.Apirest.security.service.UserServiceImpl;
 
 @Configuration
 @EnableWebSecurity

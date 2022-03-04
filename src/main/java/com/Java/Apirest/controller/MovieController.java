@@ -3,15 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.Java.Apirest.controllers;
+package com.Java.Apirest.controller;
 
-import com.Java.Apirest.dto.MovieDetailsDto;
-import com.Java.Apirest.dto.MovieGetDto;
-import com.Java.Apirest.dto.service.MovieDtoService;
-import com.Java.Apirest.entity.Movie;
-import com.Java.Apirest.exception.InvalidDataException;
-import com.Java.Apirest.service.GenereService;
-import com.Java.Apirest.service.impl.MovieServiceImpl;
 import java.util.List;
 import java.util.NoSuchElementException;
 import javax.validation.Valid;
@@ -28,7 +21,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.Java.Apirest.dto.MovieDetailsDto;
+import com.Java.Apirest.dto.MovieGetDto;
+import com.Java.Apirest.dto.service.MovieDtoService;
+import com.Java.Apirest.entity.Movie;
+import com.Java.Apirest.exception.InvalidDataException;
+import com.Java.Apirest.service.GenereService;
+import com.Java.Apirest.service.impl.MovieServiceImpl;
 
+/**
+ *
+ * @author Mariela
+ */
 @RestController
 @RequestMapping("/movies")
 public class MovieController {

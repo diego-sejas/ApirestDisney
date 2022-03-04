@@ -19,6 +19,10 @@ import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+/**
+ *
+ * @author Mariela
+ */
 @Entity
 @Data
 public class UserApp implements UserDetails{

@@ -1,4 +1,10 @@
+
 package com.Java.Apirest.service.impl;
+
+import java.util.List;
+import java.util.NoSuchElementException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.Java.Apirest.dto.CharacterDetailsDto;
 import com.Java.Apirest.dto.CharacterGetDto;
@@ -7,12 +13,11 @@ import com.Java.Apirest.dto.service.CharacterDtoService;
 import com.Java.Apirest.entity.Character;
 import com.Java.Apirest.repository.CharacterRepository;
 import com.Java.Apirest.service.CharacterService;
-import java.util.List;
-import java.util.NoSuchElementException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-
+/**
+ *
+ * @author Mariela
+ */
 @Service 
 public class CharacterServiceImpl implements CharacterService{
     @Autowired

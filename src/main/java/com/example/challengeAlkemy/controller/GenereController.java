@@ -1,9 +1,9 @@
 
-package com.Java.Apirest.controllers;
+package com.example.challengeAlkemy.controller;
 
-import com.Java.Apirest.entity.Genere;
-import com.Java.Apirest.exception.InvalidDataException;
-import com.Java.Apirest.service.impl.GenereServiceImpl;
+import com.example.challengeAlkemy.entity.Genere;
+import com.example.challengeAlkemy.exception.InvalidDataException;
+import com.example.challengeAlkemy.service.impl.GenereServiceImpl;
 import java.util.NoSuchElementException;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

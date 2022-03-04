@@ -1,14 +1,19 @@
+
 package com.Java.Apirest.service.impl;
 
-import com.Java.Apirest.entity.Genere;
-import com.Java.Apirest.repository.GenereRepository;
-import com.Java.Apirest.service.GenereService;
 import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 
+import com.Java.Apirest.entity.Genere;
+import com.Java.Apirest.repository.GenereRepository;
+import com.Java.Apirest.service.GenereService;
 
+/**
+ *
+ * @author Mariela
+ */
 @Service
 public class GenereServiceImpl implements GenereService {
 

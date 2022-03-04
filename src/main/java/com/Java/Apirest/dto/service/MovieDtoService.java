@@ -1,16 +1,17 @@
 
 package com.Java.Apirest.dto.service;
 
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.Java.Apirest.dto.MovieDetailsDto;
 import com.Java.Apirest.dto.MovieGetDto;
 import com.Java.Apirest.entity.Genere;
 import com.Java.Apirest.entity.Movie;
 import com.Java.Apirest.repository.GenereRepository;
 import com.Java.Apirest.repository.MovieRepository;
-import java.util.ArrayList;
-import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 
 @Service

@@ -1,101 +1,66 @@
+
 package com.Java.Apirest.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.sun.istack.NotNull;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import lombok.Data;
 
-@Data @AllArgsConstructor @NoArgsConstructor
-@Getter @Setter
-@Entity 
+/**
+ *
+ * @author Mariela
+ */
+@Entity
 @Table(name = "movies")
-public class Movie {
-	
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+@Data
+public class Movie implements Serializable {
+    
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(nullable = false)
-    private String image;
-    
-    @Column(nullable = false)
+    @NotBlank
     private String title;
-    
-    @Column(nullable = false, updatable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createDate = new Date();
     
     @NotNull
     @Min(1)
     @Max(5)
     private Integer score;
     
+    @NotBlank
+    private String image;
+    
+    @Temporal(TemporalType.DATE)
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @NotNull
+    @Past
+    private Date createDate;
+    
     @JsonIgnore
     @ManyToMany(mappedBy = "movies")
     private List<Character> characters = new ArrayList<Character>();
     
-	/*
-	 * @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-	 * 
-	 * @Column(nullable = false)
-	 * 
-	 * @JsonIgnoreProperties(value="movies") private List<Character> characters =
-	 * new ArrayList<>();
-	 * 
-	 * @ManyToMany(cascade = CascadeType.PERSIST,fetch =
-	 * FetchType.LAZY) @JoinTable(name ="movie_genre", joinColumns
-	 * = @JoinColumn(name = "id_movie"), inverseJoinColumns = @JoinColumn(name =
-	 * "id_genre"))
-	 * 
-	 * @Column(nullable = false)
-	 * 
-	 * @JsonIgnoreProperties(value="movies") private List<Genre> genres = new
-	 * ArrayList<>();
-	 */
-
-	/*
-	 * public List<Character> getCharacters() { return characters; }
-	 * 
-	 * public void setCharacters(List<Character> characters) { this.characters =
-	 * characters; }
-	 * 
-	 * public List<Genre> getGenres() { return genres; }
-	 * 
-	 * public void setGenres(List<Genre> genres) { this.genres = genres; }
-	 */
-    
-    
-    
+   
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,8 +1,8 @@
-package com.Java.Apirest.controllers;
+package com.example.challengeAlkemy.controller;
 
-import com.Java.Apirest.dto.CharacterDetailsDto;
-import com.Java.Apirest.dto.CharacterGetDto;
-import com.Java.Apirest.service.impl.CharacterServiceImpl;
+import com.example.challengeAlkemy.dto.CharacterDetailsDto;
+import com.example.challengeAlkemy.dto.CharacterGetDto;
+import com.example.challengeAlkemy.service.impl.CharacterServiceImpl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,9 +10,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.Java.Apirest.entity.Character;
-import com.Java.Apirest.exception.InvalidDataException;
-import com.Java.Apirest.service.impl.MovieServiceImpl;
+import com.example.challengeAlkemy.entity.Character;
+import com.example.challengeAlkemy.exception.InvalidDataException;
+import com.example.challengeAlkemy.service.impl.MovieServiceImpl;
 import java.util.NoSuchElementException;
 import javax.validation.Valid;
 import org.springframework.validation.BindingResult;
