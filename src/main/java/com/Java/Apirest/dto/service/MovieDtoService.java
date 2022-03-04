@@ -12,6 +12,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class MovieDtoService {
     
@@ -25,7 +26,7 @@ public class MovieDtoService {
     
     public MovieGetDto createDto(Movie movie){
         MovieGetDto movieDto = new MovieGetDto();
-        movieDto.setId(movie.getId_movie());
+        movieDto.setId(movie.getId());
         movieDto.setTitle(movie.getTitle());
         movieDto.setImage(movie.getImage());
         movieDto.setCreateDate(movie.getCreateDate());
@@ -48,8 +49,8 @@ public class MovieDtoService {
     
     public MovieDetailsDto createDetailsDto(Movie movie){
         MovieDetailsDto movieDto = new MovieDetailsDto();
-        Genere genere = genereRepository.findgenereByMovie(movie.getId_movie());
-        movieDto.setId(movie.getId_movie());
+        Genere genere = genereRepository.findgenereByMovie(movie.getId());
+        movieDto.setId(movie.getId());
         movieDto.setTitle(movie.getTitle());
         movieDto.setImage(movie.getImage());
         movieDto.setScore(movie.getScore());

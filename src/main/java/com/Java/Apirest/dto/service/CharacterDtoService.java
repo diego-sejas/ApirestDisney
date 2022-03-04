@@ -1,3 +1,4 @@
+
 package com.Java.Apirest.dto.service;
 
 import com.Java.Apirest.dto.CharacterDetailsDto;
@@ -19,7 +20,7 @@ public class CharacterDtoService {
     
     public CharacterGetDto createDto (Character character){
         CharacterGetDto cDto = new CharacterGetDto();
-            cDto.setId(character.getId_character());
+            cDto.setId(character.getId());
             cDto.setImage(character.getImage());
             cDto.setName(character.getName());
         
@@ -44,7 +45,7 @@ public class CharacterDtoService {
     
     public CharacterDetailsDto createDetailsDto (Character character){
         CharacterDetailsDto cDto =new CharacterDetailsDto();
-        cDto.setId(character.getId_character());
+        cDto.setId(character.getId());
         cDto.setName(character.getName());
         cDto.setAge(character.getAge());
         cDto.setImage(character.getImage());

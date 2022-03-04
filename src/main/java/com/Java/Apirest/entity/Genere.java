@@ -19,7 +19,7 @@ import javax.persistence.*;
 public class Genere {
 	
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_genere;
+    private Long id;
     
     @Column(unique=true)
     private String name;

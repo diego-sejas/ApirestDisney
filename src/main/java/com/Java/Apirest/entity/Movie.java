@@ -24,7 +24,7 @@ import java.util.List;
 public class Movie {
 	
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_movie;
+    private Long id;
     
     @Column(nullable = false)
     private String image;

@@ -18,7 +18,7 @@ public interface CharacterRepository extends JpaRepository<Character, Long> {
 
     List<Character> findByAge (Integer age);
     
-    List<Character> findByMoviesId(Long id_movie);
+    List<Character> findByMoviesId(Long idMovie);
        
 	@Query
 	 ("SELECT c FROM Character c WHERE c.name LIKE CONCAT('%', :dato,'%') ")
