@@ -7,18 +7,12 @@ package com.example.challengeAlkemy.security.entity;
 
 
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 import static java.util.Collections.emptyList;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
@@ -49,7 +43,6 @@ public class UserApp implements UserDetails{
     @Email
     private String mail;
 
-    
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return emptyList();
