@@ -17,7 +17,7 @@ public class MovieDetailsDto {
     
     private String title;
     @Min(1)
-    @Max(5)
+    @Max(10)
     private Integer score;
     
     private String image;
