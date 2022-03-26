@@ -1,8 +1,13 @@
+
 package com.example.challengeAlkemy.dto;
 
 import java.util.Date;
 import lombok.Data;
 
+/**
+ *
+ * @author Mariela
+ */
 @Data
 public class MovieGetDto {
     

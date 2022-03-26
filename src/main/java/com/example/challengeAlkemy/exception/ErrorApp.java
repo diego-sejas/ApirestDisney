@@ -5,7 +5,10 @@ import java.util.Date;
 import java.util.List;
 import lombok.Data;
 
-
+/**
+ *
+ * @author Mariela
+ */
 @Data
 public class ErrorApp {
      private int status;

@@ -22,6 +22,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
+/**
+ *
+ * @author Mariela
+ */
 @RestController
 @RequestMapping("/characters")
 public class CharacterController {
@@ -35,18 +39,17 @@ public class CharacterController {
     ResponseEntity<List<CharacterGetDto>> getAll() {
         List<CharacterGetDto> characters = characterServiceImpl.findAll();
 
-        return new ResponseEntity<List<CharacterGetDto>>(characters, HttpStatus.OK);
+        return new ResponseEntity(characters, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     ResponseEntity<Character> getCharacter(@PathVariable Long id) {
 
         Character character = characterServiceImpl.findById(id);
-        return new ResponseEntity<Character>(character, HttpStatus.resolve(200));
+        return new ResponseEntity(character, HttpStatus.resolve(200));
     }
 
-    @SuppressWarnings("unchecked")
-	@PostMapping
+    @PostMapping
     ResponseEntity<?> create(@Valid @RequestBody Character character, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
 
@@ -56,8 +59,7 @@ public class CharacterController {
         return new ResponseEntity("se creo personaje con exito", HttpStatus.CREATED);
     }
 
-    @SuppressWarnings("unchecked")
-	@PostMapping("/delete/{idCharacter}")
+    @PostMapping("/delete/{idCharacter}")
     ResponseEntity<?> detele(@PathVariable Long idCharacter) {
 
         Character character = characterServiceImpl.findById(idCharacter);
@@ -66,8 +68,7 @@ public class CharacterController {
         return new ResponseEntity("se elimino correctamente", HttpStatus.ACCEPTED);
     }
 
-    @SuppressWarnings("unchecked")
-	@PutMapping("/{id}")
+    @PutMapping("/{id}")
     ResponseEntity<?> update(@PathVariable Long id, @RequestBody CharacterDetailsDto characterDto) {
 
         Character character = characterServiceImpl.findById(id);
@@ -75,8 +76,7 @@ public class CharacterController {
         return new ResponseEntity("modificacion exitosa", HttpStatus.OK);
     }
 
-    @SuppressWarnings("unchecked")
-	@GetMapping(params = "name")
+    @GetMapping(params = "name")
     ResponseEntity<?> searchName(@RequestParam("name") String name) {
         List<CharacterGetDto> characters = characterServiceImpl.findByName(name);
         if (characters.isEmpty()) {
@@ -88,8 +88,7 @@ public class CharacterController {
 
     }
 
-    @SuppressWarnings("unchecked")
-	@GetMapping(params = "age")
+    @GetMapping(params = "age")
     ResponseEntity<?> searchAge(@RequestParam("age") Integer age) {
         List<CharacterGetDto> characters = characterServiceImpl.findByAge(age);
         if (characters.isEmpty()) {
@@ -101,8 +100,7 @@ public class CharacterController {
 
     }
 
-    @SuppressWarnings("unchecked")
-	@GetMapping(params = "movie")
+    @GetMapping(params = "movie")
     ResponseEntity<?> searchMovie(@RequestParam("movie") Long idMovie) {
         if (!movieServiceImple.existMovie(idMovie)) {
             throw new NoSuchElementException("No existe  la pelicula con id: " + idMovie);

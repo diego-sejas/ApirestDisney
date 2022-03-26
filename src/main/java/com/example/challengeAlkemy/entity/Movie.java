@@ -12,7 +12,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Max;
@@ -22,18 +21,15 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import lombok.Data;
 
-
+/**
+ *
+ * @author Mariela
+ */
 @Entity
-@Table(name = "movies")
 @Data
 public class Movie implements Serializable {
     
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
@@ -56,7 +52,7 @@ public class Movie implements Serializable {
     
     @JsonIgnore
     @ManyToMany(mappedBy = "movies")
-    private List<Character> characters = new ArrayList<Character>();
+    private List<Character> characters = new ArrayList();
     
    
     

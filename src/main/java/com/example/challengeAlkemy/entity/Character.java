@@ -19,16 +19,17 @@ import javax.validation.constraints.NotNull;
 import lombok.Data;
 
 
+/**
+ *
+ * @author Mariela
+ */
+
 @Entity
 @Data
-@Table(name = "characters")
+@Table(name = "personaje")
 public class Character implements Serializable {
   
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	@Id
+    @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank

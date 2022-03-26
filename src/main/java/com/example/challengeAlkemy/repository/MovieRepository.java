@@ -8,7 +8,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-
+/**
+ *
+ * @author Mariela
+ */
 @Repository
 public interface MovieRepository extends JpaRepository<Movie, Long> {
     @Query ("SELECT m FROM Movie m WHERE m.title LIKE CONCAT('%', :dato,'%') ")

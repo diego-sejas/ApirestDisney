@@ -1,3 +1,4 @@
+
 package com.example.challengeAlkemy.dto;
 
 import com.example.challengeAlkemy.entity.Genere;
@@ -10,6 +11,10 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.Past;
 import lombok.Data;
 
+/**
+ *
+ * @author Mariela
+ */
 @Data
 public class MovieDetailsDto {
     

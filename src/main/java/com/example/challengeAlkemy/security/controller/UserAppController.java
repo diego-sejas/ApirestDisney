@@ -26,6 +26,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ *
+ * @author Mariela
+ */
+
 @RestController
 @RequestMapping("/auth")
 @CrossOrigin
@@ -39,8 +44,7 @@ public class UserAppController {
      @Autowired 
      private EmailService emailService;
     
-    @SuppressWarnings("unchecked")
-	@PostMapping("/register")
+    @PostMapping("/register")
     public ResponseEntity<?> nuevo(@Valid @RequestBody UserApp userApp, BindingResult bindingResult) throws MessagingException{
         if(bindingResult.hasErrors()){
              throw new InvalidDataException(bindingResult);
@@ -69,7 +73,7 @@ public class UserAppController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtProvider.generateToken(authentication);
         UserDetails userDetails = (UserDetails)authentication.getPrincipal();
-		JwtDto jwtDto = new JwtDto(jwt, userDetails.getUsername());
-		return new ResponseEntity<>(jwtDto, HttpStatus.OK);
+        JwtDto jwtDto = new JwtDto(jwt, userDetails.getUsername());
+        return new ResponseEntity(jwtDto, HttpStatus.OK);
     }
 }

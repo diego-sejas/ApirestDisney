@@ -7,15 +7,18 @@ package com.example.challengeAlkemy.security.jwt;
 
 import lombok.Data;
 
-
+/**
+ *
+ * @author Mariela
+ */
 @Data
 public class JwtDto {
-   private String token;
-   private String bearer = "Bearer";
-   private String username;
+     private String token;
+    private String bearer = "Bearer";
+    private String username;
 
-   public JwtDto(String jwt, String username) {
-       this.token=jwt;
-       this.username=username;
-   }
+    public JwtDto(String jwt, String username) {
+        this.token=jwt;
+        this.username=username;
+    }
 }

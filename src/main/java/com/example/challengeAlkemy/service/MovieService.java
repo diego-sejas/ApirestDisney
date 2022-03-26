@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.example.challengeAlkemy.service;
 
 import com.example.challengeAlkemy.dto.MovieDetailsDto;
@@ -5,6 +10,10 @@ import com.example.challengeAlkemy.dto.MovieGetDto;
 import com.example.challengeAlkemy.entity.Movie;
 import java.util.List;
 
+/**
+ *
+ * @author Mariela
+ */
 public interface MovieService {
     
     void create (Movie movie);

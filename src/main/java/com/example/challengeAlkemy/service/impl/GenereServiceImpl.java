@@ -9,7 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 
-
+/**
+ *
+ * @author Mariela
+ */
 @Service
 public class GenereServiceImpl implements GenereService {
 

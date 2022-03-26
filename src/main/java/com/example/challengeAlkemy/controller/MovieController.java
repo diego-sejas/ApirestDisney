@@ -28,6 +28,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ *
+ * @author Mariela
+ */
 @RestController
 @RequestMapping("/movies")
 public class MovieController {
@@ -63,7 +67,7 @@ public class MovieController {
             throw new InvalidDataException(bindingResult);
         }
         movieServiceImpl.create(movie);
-        return new ResponseEntity("se creo la pelicula con exito", HttpStatus.CREATED);
+        return new ResponseEntity("se creo personaje con exito", HttpStatus.CREATED);
     }
 
     @PostMapping("/delete/{id}")
@@ -71,11 +75,11 @@ public class MovieController {
 
         if (!movieServiceImpl.existMovie(id)) {
 
-            throw new NoSuchElementException("No existe pelicula con id detallado: " + id);
+            throw new NoSuchElementException("No existe la pelicula con id: " + id);
         }
 
         movieServiceImpl.delete(id);
-        return new ResponseEntity("se elimino Pelicula correctamente", HttpStatus.OK);
+        return new ResponseEntity("se elimino correctamente", HttpStatus.OK);
     }
 
     @PutMapping("/{id}")

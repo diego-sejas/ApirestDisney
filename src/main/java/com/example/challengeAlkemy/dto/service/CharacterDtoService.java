@@ -9,7 +9,10 @@ import com.example.challengeAlkemy.entity.Character;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
-
+/**
+ *
+ * @author Mariela
+ */
 @Service
 public class CharacterDtoService {
     @Autowired
