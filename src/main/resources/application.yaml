@@ -1,0 +1,60 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: appnoreplay112@gmail.com
+    password: appJava12
+    smtp:
+      debug: true
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+              required: true
+              enabled: true
+              
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/apirestrole
+    username: root
+    password: 080393sa
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+  
+springdoc:
+  swagger-ui:
+    path: /swagger # Ruta para swagger, por defecto es /swagger-ui.html
+    tags-sorter: alpha # Ordenamos alfabeticamente los tags
+    operations-sorter: method # Ordenamos las operaciones por tipo
+    doc-expansion: list # Expandimos por defecto los tags
+    default-models-expand-depth: 0 # Contraemos por defecto los modelos
+  api-docs:
+    path: /docs # Ruta para docs, por defecto es /v3/api-docs
+    groups:
+      enabled: true
+  group-configs:
+    - group: v1.0.0
+      packages-to-scan:
+        - com.example.challengeAlkemy.controller
+        - com.example.challengeAlkemy.security.controller
+      paths-to-match: /**
+app:
+   name: 'Api Rest Disney'
+   version: '1.0'
+   description: 'Api crud con Roles'
+   
+
+jwt:
+    secret: secret
+    expiration: 36000
