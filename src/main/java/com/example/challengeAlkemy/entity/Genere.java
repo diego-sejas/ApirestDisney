@@ -12,10 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import lombok.Data;
 
-/**
- *
- * @author Mariela
- */
 @Entity
 @Data
 public class Genere implements Serializable{

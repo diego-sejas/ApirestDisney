@@ -9,7 +9,7 @@ import lombok.Data;
 
 /**
  *
- * @author Mariela
+ * @author Diego
  */
 @Data
 public class CharacterGetDto {

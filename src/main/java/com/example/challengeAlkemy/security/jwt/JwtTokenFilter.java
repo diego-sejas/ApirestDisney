@@ -15,10 +15,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-/**
- *
- * @author Mariela
- */
+
 public class JwtTokenFilter extends OncePerRequestFilter{
 private final static Logger logger = LoggerFactory.getLogger(JwtTokenFilter.class);
 

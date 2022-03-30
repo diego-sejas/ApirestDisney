@@ -10,10 +10,7 @@ import com.example.challengeAlkemy.security.entity.UserApp;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-/**
- *
- * @author Mariela
- */
+
 @Repository
 public interface UserAppRepository extends JpaRepository<UserApp, Long> {
     UserApp findByUsername(String Username);

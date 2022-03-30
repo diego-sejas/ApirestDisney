@@ -10,10 +10,7 @@ import com.example.challengeAlkemy.dto.MovieGetDto;
 import com.example.challengeAlkemy.entity.Movie;
 import java.util.List;
 
-/**
- *
- * @author Mariela
- */
+
 public interface MovieService {
     
     void create (Movie movie);

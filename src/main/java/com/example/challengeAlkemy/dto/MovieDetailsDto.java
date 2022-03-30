@@ -11,10 +11,6 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.Past;
 import lombok.Data;
 
-/**
- *
- * @author Mariela
- */
 @Data
 public class MovieDetailsDto {
     

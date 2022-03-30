@@ -7,10 +7,6 @@ package com.example.challengeAlkemy.security.jwt;
 
 import lombok.Data;
 
-/**
- *
- * @author Mariela
- */
 @Data
 public class JwtDto {
      private String token;

@@ -19,10 +19,6 @@ import javax.validation.constraints.NotNull;
 import lombok.Data;
 
 
-/**
- *
- * @author Mariela
- */
 
 @Entity
 @Data

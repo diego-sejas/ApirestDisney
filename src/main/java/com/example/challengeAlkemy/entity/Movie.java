@@ -21,10 +21,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import lombok.Data;
 
-/**
- *
- * @author Mariela
- */
+
 @Entity
 @Data
 public class Movie implements Serializable {

@@ -1,5 +1,6 @@
 package com.example.challengeAlkemy.controller;
 
+
 import com.example.challengeAlkemy.dto.CharacterDetailsDto;
 import com.example.challengeAlkemy.dto.CharacterGetDto;
 import com.example.challengeAlkemy.service.impl.CharacterServiceImpl;
@@ -13,6 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.challengeAlkemy.entity.Character;
 import com.example.challengeAlkemy.exception.InvalidDataException;
 import com.example.challengeAlkemy.service.impl.MovieServiceImpl;
+import com.example.challengeAlkemy.util.Constantes;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import java.util.NoSuchElementException;
 import javax.validation.Valid;
 import org.springframework.validation.BindingResult;
@@ -22,14 +27,14 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
-/**
- *
- * @author Mariela
- */
 @RestController
 @RequestMapping("/characters")
+@Tag(name =  CharacterController.ENTIDADES, description = Constantes.OA_ENDPOINT + CharacterController.ENTIDADES)
 public class CharacterController {
 
+	public static final String ENTIDAD = Constantes.CHARACTER;
+	public static final String ENTIDADES = Constantes.CHARACTER_PLURAL;
+	
     @Autowired
     private CharacterServiceImpl characterServiceImpl;
     @Autowired

@@ -10,10 +10,7 @@ import com.example.challengeAlkemy.dto.CharacterDetailsDto;
 import com.example.challengeAlkemy.dto.CharacterGetDto;
 import java.util.List;
 import com.example.challengeAlkemy.entity.Character;
-/**
- *
- * @author Mariela
- */
+
 public interface CharacterService {
     void create (Character character);
     void update (CharacterDetailsDto characterDto,Character character);

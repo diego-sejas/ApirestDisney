@@ -14,10 +14,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
-/**
- *
- * @author Mariela
- */
+
 @Service
 public class EmailService {
     @Autowired

@@ -7,10 +7,6 @@ package com.example.challengeAlkemy.service;
 
 import com.example.challengeAlkemy.entity.Genere;
 
-/**
- *
- * @author Mariela
- */
 public interface GenereService {
     
     void create (Genere genere);

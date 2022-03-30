@@ -1,10 +1,6 @@
 
 package com.example.challengeAlkemy.exception;
 
-/**
- *
- * @author Mariela
- */
 import org.springframework.validation.BindingResult;
 
 public class InvalidDataException extends RuntimeException {

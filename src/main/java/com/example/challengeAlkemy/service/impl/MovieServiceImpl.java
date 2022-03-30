@@ -13,10 +13,7 @@ import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- *
- * @author Mariela
- */
+
 @Service
 public class MovieServiceImpl implements MovieService {
 
