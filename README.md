@@ -18,7 +18,7 @@ Esta es una API Rest donde explora el mundo de Disney, conociendo a sus personaj
 - ![Maven Central](https://img.shields.io/maven-central/v/org.springframework.boot/spring-boot-starter-data-jpa?color=%236DB33F&label=Spring%20Data%20JPA&logo=Spring%20Boot&style=flat-square&versionSuffix=2.5.2) ![Maven Central](https://img.shields.io/maven-central/v/mysql/mysql-connector-java?color=%234479A1&label=MySQL&logo=MySQL&logoColor=FFF&style=flat-square)
 - ![Maven Central](https://img.shields.io/maven-central/v/org.springframework.boot/spring-boot-starter-security?color=%236DB33F&label=Spring%20Security&logo=Spring%20Boot&style=flat-square&versionSuffix=2.5.2) ![Maven Central](https://img.shields.io/maven-central/v/io.jsonwebtoken/jjwt?color=blueviolet&label=JWT&logo=JSON%20Web%20Tokens&style=flat-square&versionSuffix=0.9.1)
 - ![Maven Central](<https://img.shields.io/maven-central/v/org.springdoc/springdoc-openapi-ui?color=%236BA539&label=OpenAPI%20(OAS3)&logo=OpenAPI%20Initiative&logoColor=%236BA539&style=flat-square&versionSuffix=1.5.9>)
-- ![Maven Central](https://img.shields.io/maven-central/v/org.projectlombok/lombok?label=Lombok&style=flat-square) ![Maven Central](https://img.shields.io/maven-central/v/org.modelmapper.extensions/modelmapper-spring?label=Model%20Mapper&style=flat-square) ![](https://img.shields.io/badge/Exception%20Handler-%20-red?style=flat-square)
+- ![Maven Central](https://img.shields.io/maven-central/v/org.projectlombok/lombok?label=Lombok&style=flat-square) ![](https://img.shields.io/badge/Exception%20Handler-%20-red?style=flat-square)
 
 ## Configuración paso a paso
 
