@@ -1,4 +1,4 @@
-<h1 align="center"># API Rest Spring Boot</h1>
+<h1 align="center">API Rest Spring Boot</h1>
 <div align="center">
 
 
@@ -9,7 +9,7 @@
 
 </div>
 Esta es una API Rest donde explora el mundo de Disney, conociendo a sus personajes y películas. Permite realizar acciones tipo CRUD tanto para personajes, películas como asi también genero se utilizó Spring Boot, Spring Data JPA y Base de Datos MySQL. Securizando con autenticación JWT y documentando con Swagger bajo la especificación OpenAPI (OAS3).
-
+</div>
 
 **Herramientas empleadas:**
 
