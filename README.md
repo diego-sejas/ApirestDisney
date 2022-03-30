@@ -8,7 +8,8 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/joslunpac/api-rest-spring-boot?label=%C3%9Altimo%20commit&logo=Github&style=flat-square)
 
 </div>
-Esta es una API Rest donde explora el mundo de Disney, conociendo a sus personajes y películas. Permite realizar acciones tipo CRUD tanto para personajes, películas y genero se utilizo Spring Boot, Spring Data JPA y MySQL. Securizando con autenticación JWT basada. Documentada con Swagger, bajo la especificación OpenAPI (OAS3).
+Esta es una API Rest donde explora el mundo de Disney, conociendo a sus personajes y películas. Permite realizar acciones tipo CRUD tanto para personajes, películas como asi también genero se utilizó Spring Boot, Spring Data JPA y Base de Datos MySQL. Securizando con autenticación JWT y documentando con Swagger bajo la especificación OpenAPI (OAS3).
+
 
 **Herramientas empleadas:**
 
