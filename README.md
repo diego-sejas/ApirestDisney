@@ -24,7 +24,7 @@ Esta es una API Rest donde explora el mundo de Disney, conociendo a sus personaj
 **1. Clone la aplicación**
 
 ```bash
-git clone https://github.com/joslunpac/api-rest-spring-boot.git
+git clone https://github.com/diego-sejas/ApirestDisney.git
 ```
 
 **2. Cree una base de datos MySQL**
@@ -63,6 +63,6 @@ Cualquier sugerencia es bienvenida, también se recomienda encarecidamente prese
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-[linkedin-shield]: https://img.shields.io/badge/LinkedIn-joslunpac-0A66C2?style=flat-square&logo=linkedin
+[linkedin-shield]: https://img.shields.io/badge/LinkedIn-diegosejas-0A66C2?style=flat-square&logo=linkedin
 [linkedin-url]: https://linkedin.com/in/diegosejas
 
