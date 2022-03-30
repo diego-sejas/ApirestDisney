@@ -12,6 +12,11 @@ import com.example.challengeAlkemy.entity.Movie;
 import com.example.challengeAlkemy.exception.InvalidDataException;
 import com.example.challengeAlkemy.service.GenereService;
 import com.example.challengeAlkemy.service.impl.MovieServiceImpl;
+import com.example.challengeAlkemy.util.Constantes;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import java.util.List;
 import java.util.NoSuchElementException;
 import javax.validation.Valid;
@@ -30,8 +35,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/movies")
+@Tag(name =  MovieController.ENTIDADES, description = Constantes.OA_ENDPOINT + MovieController.ENTIDADES)
 public class MovieController {
 
+	public static final String ENTIDAD = Constantes.MOVIE;
+	public static final String ENTIDADES = Constantes.MOVIE_PLURAL;
+	
+	private static final String OA_OBTENER_TODOS = Constantes.OA_OBTENER_TODOS + ENTIDADES;
+	private static final String OA_OBTENER = Constantes.OA_OBTENER + ENTIDAD;
+	private static final String OA_CREAR = Constantes.OA_CREAR + ENTIDAD;
+	private static final String OA_ACTUALIZAR = Constantes.OA_ACTUALIZAR + ENTIDAD;
+	private static final String OA_ELIMINAR = Constantes.OA_ELIMINAR + ENTIDAD;
+	
     @Autowired
     MovieServiceImpl movieServiceImpl;
 
@@ -41,6 +56,7 @@ public class MovieController {
     @Autowired
     GenereService genereService;
 
+    @Operation(summary = OA_OBTENER_TODOS)
     @GetMapping
     ResponseEntity<List<MovieGetDto>> getAll() {
         List<MovieGetDto> movies = movieServiceImpl.findAll();
@@ -48,6 +64,7 @@ public class MovieController {
         return new ResponseEntity(movies, HttpStatus.OK);
     }
 
+    @Operation(summary = OA_OBTENER)
     @GetMapping("/{id}")
     ResponseEntity<MovieDetailsDto> getMovie(@PathVariable Long id) {
 
@@ -56,6 +73,7 @@ public class MovieController {
         return new ResponseEntity(movieDto, HttpStatus.OK);
     }
 
+    @Operation(summary = OA_CREAR)
     @PostMapping
     ResponseEntity<?> create(@Valid @RequestBody Movie movie, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
@@ -66,18 +84,20 @@ public class MovieController {
         return new ResponseEntity("se creo personaje con exito", HttpStatus.CREATED);
     }
 
+    @Operation(summary = OA_ELIMINAR)
     @PostMapping("/delete/{id}")
     ResponseEntity<?> detele(@PathVariable Long id) {
 
         if (!movieServiceImpl.existMovie(id)) {
 
-            throw new NoSuchElementException("No existe la pelicula con id: " + id);
+            throw new NoSuchElementException(ENTIDAD + Constantes.CON_ID + id + Constantes.NO_ENCONTRADA);
         }
 
         movieServiceImpl.delete(id);
         return new ResponseEntity("se elimino correctamente", HttpStatus.OK);
     }
 
+    @Operation(summary = OA_ACTUALIZAR)
     @PutMapping("/{id}")
     ResponseEntity<?> update(@PathVariable Long id, @Valid @RequestBody MovieDetailsDto movieDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {

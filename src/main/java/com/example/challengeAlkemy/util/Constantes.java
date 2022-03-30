@@ -38,10 +38,10 @@ public class Constantes {
 	// OpenApi
 	public static final String OA_ENDPOINT = "Endpoint de ";
 	public static final String OA_OBTENER_TODOS = "Recuperar la lista completa de ";
-	public static final String OA_OBTENER = "Recuperar una ";
-	public static final String OA_CREAR = "Crear una ";
-	public static final String OA_ACTUALIZAR = "Actualizar una ";
-	public static final String OA_ELIMINAR = "Eliminar una ";
+	public static final String OA_OBTENER = "Recuperar un ";
+	public static final String OA_CREAR = "Crear un ";
+	public static final String OA_ACTUALIZAR = "Actualizar un ";
+	public static final String OA_ELIMINAR = "Eliminar un ";
 	public static final String OA_AUTENTICAR = "Autenticar un ";
 	public static final String OA_REGISTRAR = "Registrar un ";
 

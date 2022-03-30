@@ -8,6 +8,11 @@ import com.example.challengeAlkemy.security.jwt.JwtDto;
 import com.example.challengeAlkemy.security.jwt.JwtProvider;
 import com.example.challengeAlkemy.security.service.UserServiceImpl;
 import com.example.challengeAlkemy.service.impl.EmailService;
+import com.example.challengeAlkemy.util.Constantes;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import javax.mail.MessagingException;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,17 +34,26 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/auth")
+@Tag(name =  UserAppController.ENTIDADES, description = Constantes.OA_ENDPOINT + UserAppController.ENTIDADES)
 @CrossOrigin
 public class UserAppController {
+	
+	public static final String ENTIDAD = Constantes.USU;
+	public static final String ENTIDADES = Constantes.USU_PLURAL;
+	
+	private static final String OA_AUTENTICAR = Constantes.OA_AUTENTICAR + ENTIDAD;
+	private static final String OA_REGISTRAR = Constantes.OA_REGISTRAR + ENTIDAD;
+	
     @Autowired
     private UserServiceImpl userService;
      @Autowired
     private AuthenticationManager authenticationManager;
-     @Autowired
-     private JwtProvider jwtProvider;
-     @Autowired 
-     private EmailService emailService;
+    @Autowired
+    private JwtProvider jwtProvider;
+    @Autowired 
+    private EmailService emailService;
     
+    @Operation(summary = OA_REGISTRAR)
     @PostMapping("/register")
     public ResponseEntity<?> nuevo(@Valid @RequestBody UserApp userApp, BindingResult bindingResult) throws MessagingException{
         if(bindingResult.hasErrors()){
@@ -58,6 +72,7 @@ public class UserAppController {
         return new ResponseEntity("usuario guardado con éxito", HttpStatus.CREATED);
     }
     
+    @Operation(summary = OA_AUTENTICAR)
     @PostMapping("/login")
     public ResponseEntity<JwtDto> login(@Valid @RequestBody UserLogin userLogin, BindingResult bindingResult){
         if(bindingResult.hasErrors()){

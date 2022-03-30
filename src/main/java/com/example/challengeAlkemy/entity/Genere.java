@@ -23,6 +23,7 @@ public class Genere implements Serializable{
     private String name;
     
     private String image;
+    
     @OneToMany 
     private List<Movie> movies = new ArrayList();
 }

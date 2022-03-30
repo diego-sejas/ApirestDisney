@@ -1,9 +1,16 @@
 
 package com.example.challengeAlkemy.service.impl;
 
+import com.example.challengeAlkemy.dto.GenereGetDto;
+import com.example.challengeAlkemy.dto.MovieGetDto;
+import com.example.challengeAlkemy.dto.service.GenereDtoService;
+import com.example.challengeAlkemy.dto.service.MovieDtoService;
 import com.example.challengeAlkemy.entity.Genere;
+import com.example.challengeAlkemy.entity.Movie;
 import com.example.challengeAlkemy.repository.GenereRepository;
 import com.example.challengeAlkemy.service.GenereService;
+
+import java.util.List;
 import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
@@ -15,6 +22,8 @@ public class GenereServiceImpl implements GenereService {
 
     @Autowired
     GenereRepository genereRepository;
+    @Autowired
+    GenereDtoService genereDtoService;
 
     @Override
     public void create(Genere genere) {
@@ -52,6 +61,12 @@ public class GenereServiceImpl implements GenereService {
         genereRepository.deleteById(id);
     }
 
+    
+    public List<GenereGetDto> findAll() {
+        List<Genere> generes = genereRepository.findAll();
+        return genereDtoService.createListDto(generes);
+    }
+    
     @Override
     public Genere findById(Long id) {
         if (!existGenere(id)) {

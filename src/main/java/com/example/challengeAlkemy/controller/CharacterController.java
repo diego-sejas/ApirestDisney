@@ -16,6 +16,7 @@ import com.example.challengeAlkemy.exception.InvalidDataException;
 import com.example.challengeAlkemy.service.impl.MovieServiceImpl;
 import com.example.challengeAlkemy.util.Constantes;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 import java.util.NoSuchElementException;
@@ -34,12 +35,20 @@ public class CharacterController {
 
 	public static final String ENTIDAD = Constantes.CHARACTER;
 	public static final String ENTIDADES = Constantes.CHARACTER_PLURAL;
+	private static final String OA_OBTENER_TODOS = Constantes.OA_OBTENER_TODOS + ENTIDADES;
+	private static final String OA_OBTENER = Constantes.OA_OBTENER + ENTIDAD;
+	private static final String OA_CREAR = Constantes.OA_CREAR + ENTIDAD;
+	private static final String OA_ACTUALIZAR = Constantes.OA_ACTUALIZAR + ENTIDAD;
+	private static final String OA_ELIMINAR = Constantes.OA_ELIMINAR + ENTIDAD;
+	
 	
     @Autowired
     private CharacterServiceImpl characterServiceImpl;
     @Autowired
     private MovieServiceImpl movieServiceImple;
 
+    
+    @Operation(summary = OA_OBTENER_TODOS)
     @GetMapping
     ResponseEntity<List<CharacterGetDto>> getAll() {
         List<CharacterGetDto> characters = characterServiceImpl.findAll();
@@ -47,13 +56,15 @@ public class CharacterController {
         return new ResponseEntity(characters, HttpStatus.OK);
     }
 
+    @Operation(summary = OA_OBTENER)
     @GetMapping("/{id}")
     ResponseEntity<Character> getCharacter(@PathVariable Long id) {
 
         Character character = characterServiceImpl.findById(id);
         return new ResponseEntity(character, HttpStatus.resolve(200));
     }
-
+    
+    @Operation(summary = OA_CREAR)
     @PostMapping
     ResponseEntity<?> create(@Valid @RequestBody Character character, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
@@ -64,6 +75,7 @@ public class CharacterController {
         return new ResponseEntity("se creo personaje con exito", HttpStatus.CREATED);
     }
 
+    @Operation(summary = OA_ELIMINAR)
     @PostMapping("/delete/{idCharacter}")
     ResponseEntity<?> detele(@PathVariable Long idCharacter) {
 
@@ -73,6 +85,7 @@ public class CharacterController {
         return new ResponseEntity("se elimino correctamente", HttpStatus.ACCEPTED);
     }
 
+    @Operation(summary = OA_ACTUALIZAR)
     @PutMapping("/{id}")
     ResponseEntity<?> update(@PathVariable Long id, @RequestBody CharacterDetailsDto characterDto) {
 

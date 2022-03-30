@@ -26,7 +26,9 @@ import lombok.Data;
 @Data
 public class Movie implements Serializable {
     
-    @Id
+    private static final long serialVersionUID = 1L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
