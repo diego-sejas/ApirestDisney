@@ -1,7 +1,7 @@
-//comprobacion de token para que pueda ingresar al rescurso
+
 package com.example.challengeAlkemy.security.jwt;
 
-import com.example.challengeAlkemy.security.service.UserServiceImpl;
+import com.example.challengeAlkemy.security.service.UserDetailsServiceImpl;
 import java.io.IOException;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -15,39 +15,45 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+//se ejecuta una vez por cada arreglo
 
 public class JwtTokenFilter extends OncePerRequestFilter{
-private final static Logger logger = LoggerFactory.getLogger(JwtTokenFilter.class);
-
+       
+    private final static Logger logger = LoggerFactory.getLogger(JwtTokenFilter.class);
+    
     @Autowired
     JwtProvider jwtProvider;
-
+    
     @Autowired
-    UserServiceImpl userServiceImpl;
-   
+    UserDetailsServiceImpl userDetailsService;
+
+    //obtiene el token de la cabezera
+    //llama a provider para que lo valide,
+    //obtiene el NombreUsuario y llama al UserDetailsService y carga el usuario
+    //se le pasa el usuario autenticado
+    
     @Override
-    protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res, FilterChain fc) throws ServletException, IOException {
-         try {
+    protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res, FilterChain filterChain) throws ServletException, IOException {
+        try{
             String token = getToken(req);
             if(token != null && jwtProvider.validateToken(token)){
-                String username = jwtProvider.getUsernameFromToken(token);
-                UserDetails userDetails = userServiceImpl.loadUserByUsername(username);
-
-                UsernamePasswordAuthenticationToken auth =
-                        new UsernamePasswordAuthenticationToken(userDetails, null, null);
-                SecurityContextHolder.getContext().setAuthentication(auth);
+            String nombreUsuario = jwtProvider.getNombreUsuarioFromToken(token);
+            UserDetails userDetails = userDetailsService.loadUserByUsername(nombreUsuario);
+            UsernamePasswordAuthenticationToken auth =
+              new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+            SecurityContextHolder.getContext().setAuthentication(auth);
             }
-        } catch (Exception e){
-            logger.error("error en el método doFilter " + e.getMessage());
+        } catch(Exception e){
+            logger.error("fail en el metodo doFilter" + e.getMessage());
         }
-        fc.doFilter(req, res);
+        filterChain.doFilter(req, res);
     }
-
+    
     private String getToken(HttpServletRequest request){
         String header = request.getHeader("Authorization");
         if(header != null && header.startsWith("Bearer"))
-            return header.replace("Bearer ", "");
-        return null;
+            return header.replace("Bearer","");
+            return null;
     }
     
 }

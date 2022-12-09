@@ -1,7 +1,6 @@
 server:
   port: 8080
-  servlet:
-    context-path: /api
+
 
 spring:
   mail:
@@ -21,7 +20,7 @@ spring:
               
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/apirestrole
+    url: jdbc:mysql://localhost:3306/api_disney
     username: root
     password: 080393sa
   jpa:

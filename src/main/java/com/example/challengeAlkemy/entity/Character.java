@@ -3,6 +3,7 @@ package com.example.challengeAlkemy.entity;
 
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,12 +18,17 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import lombok.Data;
-
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.Where;
 
 
 @Entity
 @Data
-@Table(name = "personaje")
+@SQLDelete(sql = "UPDATE characters SET deleted = true WHERE id=?")
+@Where(clause = "deleted = false")
+@Table(name = "characters")
 public class Character implements Serializable {
   
     private static final long serialVersionUID = 1L;
@@ -39,6 +45,15 @@ public class Character implements Serializable {
     private String history;
     @NotBlank
     private String image;
+
+    @Column(updatable = false)
+    @CreationTimestamp
+    private LocalDateTime createDateTime;
+
+    @UpdateTimestamp
+    private LocalDateTime updateDateTime;
+
+    private Boolean deleted = Boolean.FALSE;
     
     
     @ManyToMany

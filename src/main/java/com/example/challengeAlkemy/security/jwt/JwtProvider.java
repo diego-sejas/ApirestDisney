@@ -1,14 +1,7 @@
-//genera token
 package com.example.challengeAlkemy.security.jwt;
 
-
-import com.example.challengeAlkemy.security.entity.UserApp;
-import io.jsonwebtoken.ExpiredJwtException;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.MalformedJwtException;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.SignatureException;
-import io.jsonwebtoken.UnsupportedJwtException;
+import com.example.challengeAlkemy.security.entity.mainUser;
+import io.jsonwebtoken.*;
 import java.util.Date;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,44 +11,52 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class JwtProvider {
-    private final static Logger logger = LoggerFactory.getLogger(JwtProvider.class);
-    
-    @Value("${jwt.secret}")
-    private String secret;
-
-    @Value("${jwt.expiration}")
-    private int expiration;
-
-    public String generateToken(Authentication authentication){
-        UserApp userApp = (UserApp) authentication.getPrincipal();
-        return Jwts.builder().setSubject(userApp.getUsername())
-                .setIssuedAt(new Date())
-                .setExpiration(new Date(new Date().getTime() + expiration * 1000))
-                .signWith(SignatureAlgorithm.HS512, secret)
-                .compact();
-    }
-
-    public String getUsernameFromToken(String token){
-        return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody().getSubject();
-    }
-
-    public boolean validateToken(String token){
-        try {
-            Jwts.parser().setSigningKey(secret).parseClaimsJws(token);
-            return true;
-        }catch (MalformedJwtException e){
-            logger.error("token mal formado");
-        }catch (UnsupportedJwtException e){
-            logger.error("token no soportado");
-        }catch (ExpiredJwtException e){
-            logger.error("token expirado");
-        }catch (IllegalArgumentException e){
-            logger.error("token vacío");
-        }catch (SignatureException e){
-            logger.error("fail en la firma");
+        private final static Logger logger = LoggerFactory.getLogger(JwtProvider.class);
+        
+        @Value("${jwt.secret}")
+        private String secret;
+        @Value("${jwt.expiration}")
+        private int expiration;
+        
+        //Generacion del token, sin implementar
+        
+        public String generateToken(Authentication authentication){
+            mainUser mainuser = (mainUser) authentication.getPrincipal();
+            return Jwts.builder().setSubject(mainuser.getUsername())
+                    .setIssuedAt(new Date())
+                    .setExpiration(new Date(new Date().getTime() + expiration*1000))
+                    .signWith(SignatureAlgorithm.HS512, secret).compact();
         }
-        return false;
-    }
+        
+        public String getNombreUsuarioFromToken(String token){
+            return Jwts.parser().setSigningKey(secret).parseClaimsJws(token)
+            .getBody().getSubject();
+        }
+        
+        //validacion del token, 
+        //errores de expiracion, mal formado, no soportado, fallo en firma y token vacio
+        
+        public boolean validateToken(String token){
+            try{
+                Jwts.parser().setSigningKey(secret).parseClaimsJws(token);
+                return true;
+            }
+            catch(MalformedJwtException e){
+            logger.error("token mal formado");
+            }
+            catch(UnsupportedJwtException e){
+            logger.error("token no soportado");
+            }
+            catch(ExpiredJwtException e){
+            logger.error("token expirado");
+            }
+            catch(SignatureException e){
+            logger.error("Fallo en la firma");
+            }
+            catch(IllegalArgumentException e){
+            logger.error("token vacio");
+            }
+            return false;
+        }
+
 }
-
-
