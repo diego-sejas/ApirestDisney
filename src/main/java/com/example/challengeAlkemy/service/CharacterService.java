@@ -12,6 +12,7 @@ import java.util.List;
 import com.example.challengeAlkemy.entity.Character;
 
 public interface CharacterService {
+
     void create (Character character);
     void update (CharacterDetailsDto characterDto,Character character);
     void delete (Long id);

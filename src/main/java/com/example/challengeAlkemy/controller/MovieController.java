@@ -81,7 +81,7 @@ public class MovieController {
             throw new InvalidDataException(bindingResult);
         }
         movieServiceImpl.create(movie);
-        return new ResponseEntity("se creo personaje con exito", HttpStatus.CREATED);
+        return new ResponseEntity("Movie was created successfully", HttpStatus.CREATED);
     }
 
     @Operation(summary = OA_ELIMINAR)

@@ -11,6 +11,7 @@ import com.example.challengeAlkemy.service.CharacterService;
 import java.util.List;
 import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 
 
@@ -27,8 +28,10 @@ public class CharacterServiceImpl implements CharacterService{
     
     @Override
     public void create(Character character) {
-     
-        
+        List<Character> characterx = characterRepository.findByName(character.getName());
+        if(characterx != null){
+            throw new DuplicateKeyException("Character with name already exists: " + character.getName());
+        }
         characterRepository.save(character);
     }
    

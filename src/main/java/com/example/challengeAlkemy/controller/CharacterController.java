@@ -3,6 +3,8 @@ package com.example.challengeAlkemy.controller;
 
 import com.example.challengeAlkemy.dto.CharacterDetailsDto;
 import com.example.challengeAlkemy.dto.CharacterGetDto;
+import com.example.challengeAlkemy.repository.CharacterRepository;
+import com.example.challengeAlkemy.security.dto.Mensaje;
 import com.example.challengeAlkemy.service.impl.CharacterServiceImpl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +47,10 @@ public class CharacterController {
     @Autowired
     private CharacterServiceImpl characterServiceImpl;
     @Autowired
-    private MovieServiceImpl movieServiceImple;
+    private MovieServiceImpl movieServiceImpl;
+
+    @Autowired
+    private CharacterRepository characterRepository;
 
     
     @Operation(summary = OA_OBTENER_TODOS)
@@ -72,7 +77,7 @@ public class CharacterController {
             throw new InvalidDataException(bindingResult);
         }
         characterServiceImpl.create(character);
-        return new ResponseEntity("se creo personaje con exito", HttpStatus.CREATED);
+        return new ResponseEntity("successfully created character", HttpStatus.CREATED);
     }
 
     @Operation(summary = OA_ELIMINAR)
@@ -120,7 +125,7 @@ public class CharacterController {
 
     @GetMapping(params = "movie")
     ResponseEntity<?> searchMovie(@RequestParam("movie") Long idMovie) {
-        if (!movieServiceImple.existMovie(idMovie)) {
+        if (!movieServiceImpl.existMovie(idMovie)) {
             throw new NoSuchElementException("No existe  la pelicula con id: " + idMovie);
 
         }

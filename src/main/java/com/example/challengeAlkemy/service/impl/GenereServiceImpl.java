@@ -30,7 +30,7 @@ public class GenereServiceImpl implements GenereService {
         Genere genereEx = genereRepository.findByname(genere.getName());
 
         if (genereEx != null) {
-            throw new DuplicateKeyException("Ya existe Genero con nombre: " + genere.getName());
+            throw new DuplicateKeyException("Genero with name already exists: " + genere.getName());
         }
         genereRepository.save(genere);
     }
